@@ -4,64 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forcing INPUT text to uppercase</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="bg-white font-sans text-gray-800 m-0 p-0 overflow-x-hidden">
 
-    <nav class="top-navbar">
+    <nav class="flex justify-between items-center py-4 px-[5%] bg-white border-b border-gray-100 sticky top-0 z-50">
         <div class="logo">
-            <a href="index.html"><img src="../img/logo.png" alt="The Art of Web"></a>
+            <a href="../html/index.html">
+                <img src="../img/logo.png" alt="The Art of Web" class="h-8">
+            </a>
         </div>
-        <ul class="menu">
-            <li><a href="../html/html.html">HTML</a></li>
-            <li><a href="../html/css.html">CSS</a></li>
-            <li><a href="../html/javascript.html">JavaScript</a></li>
-            <li><a href="../html/php.html">PHP</a></li>
-            <li><a href="../html/sql.html">SQL</a></li>
-            <li><a href="../html/system.html">System</a></li>
+        <ul class="hidden md:flex list-none gap-6 font-righteous text-gray-600 uppercase text-sm tracking-wide">
+            <li class="hover:text-bamboo-medium transition-colors"><a href="html.html">HTML</a></li> 
+            <li class="hover:text-bamboo-medium transition-colors"><a href="css.html">CSS</a></li>
+            <li class="hover:text-bamboo-medium transition-colors"><a href="js.html">JavaScript</a></li>
+            <li class="hover:text-bamboo-medium transition-colors"><a href="php.html">PHP</a></li>
+            <li class="text-bamboo-medium"><a href="sql.html">SQL</a></li>
+            <li class="hover:text-bamboo-medium transition-colors"><a href="system.html">System</a></li>
         </ul>
-        <div class="search-box">
-            <input type="text">
-            <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-            </svg>
+        <div class="flex items-center bg-[#ddeedd] px-4 py-1.5 rounded-full">
+            <input type="text" placeholder="Search..." class="bg-transparent border-none outline-none text-sm w-32 md:w-40 text-black">
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
         </div>
     </nav>
 
-    <header class="hero-header category-hero">
-        <div class="hero-overlay">
-            <h1 class="category-title" style="font-size: 3.5rem;">Forcing INPUT text to uppercase</h1>
-            <div class="hero-text-box">
+    <header class="h-[500px] flex justify-center items-center text-center bg-cover bg-center relative" style="background-image: url('../img/bg.png');">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="px-4 z-10 max-w-4xl">
+            <h1 class="text-white text-5xl md:text-[3.5rem] font-righteous mb-8 drop-shadow-md">Forcing INPUT text to uppercase</h1>
+            <div class="bg-[#28321e]/80 text-gray-200 p-8 rounded-[20px] shadow-xl text-[0.95rem] leading-relaxed">
                 <p>So you have a form where you want to only accept UPPERCASE text in certain input or textarea fields. There are a number of ways to tackle this ranging from JavaScript to HTML5 patterns, CSS and server-side code. Some are really annoying.</p>
             </div>
         </div>
     </header>
 
-    <main class="article-body">
+    <main class="max-w-4xl mx-auto py-16 px-5 leading-relaxed">
         
-        <h2>Using JavaScript to alter text as you type</h2>
-        <p>This is the most obvious and common approaches, but also the least user-friendly. On every keystroke a JavaScript event is triggered to convert the value to uppercase.</p>
+        <h2 class="text-3xl font-righteous text-center mt-10 mb-6 text-gray-800">Using JavaScript to alter text as you type</h2>
+        <p class="mb-4">This is the most obvious and common approaches, but also the least user-friendly. On every keystroke a JavaScript event is triggered to convert the value to uppercase.</p>
         
-        <p><strong>Source code :</strong></p>
+        <p class="mb-4"><strong>Source code :</strong></p>
         
-        <div class="code-block">
+        <div class="bg-bamboo-pale border border-bamboo-light p-5 font-mono text-sm text-white font-bold whitespace-pre-wrap rounded-lg mb-6 shadow-inner">
             &lt;input type="text" onkeyup="this.value = this.value.toUpperCase();"&gt;
         </div>
 
-        <p>Aside from the distraction of seeing things change as you type, there are other problems.</p>
-        <p>Try entering "AAA" in the input box above, select the middle "A" and try changing it to "ABBA". What you end up with instead is "ABAB", because just setting the value with JavaScript moves the cursor to the end of the text.</p>
+        <p class="mb-8">Aside from the distraction of seeing things change as you type, there are other problems. Try entering "AAA" in the input box above, select the middle "A" and try changing it to "ABBA". What you end up with instead is "ABAB", because just setting the value with JavaScript moves the cursor to the end of the text.</p>
 
-        <br><br>
+        <h2 class="text-3xl font-righteous text-center mt-10 mb-6 text-gray-800">Maintaining cursor position</h2>
+        <p class="mb-4">If you move the cursor to an earlier position in the text and type, it will be bumped back to the end of the text already input. So we need some extra code to retain the cursor position:</p>
 
-        <h2>Maintaining cursor position</h2>
-        <p>If you move the cursor to an earlier position in the text and type, it will be bumped back to the end of the text already input. So we need some extra code to retain the cursor position:</p>
+        <p class="mb-4"><strong>Source code :</strong></p>
 
-        <p><strong>Source code :</strong></p>
-
-        <div class="code-block">
+        <div class="bg-bamboo-pale border border-bamboo-light p-5 font-mono text-sm text-white font-bold whitespace-pre-wrap rounded-lg mb-6 shadow-inner">
 &lt;input type="text" onkeyup="
   var start = this.selectionStart;
   var end = this.selectionEnd;
@@ -72,63 +70,57 @@
 
     </main>
 
-    <section class="comments-section">
-        <h2>User Comments</h2>
+    <section class="py-16 bg-gray-50 text-center">
+        <h2 class="text-4xl font-righteous mb-12">User Comments</h2>
         
-        <div class="pill-card comment-card">
-            <div class="badge-circle user-badge"></div>
-            <div class="card-content">
-                <strong>Tom</strong> <span class="date">(2025-04-01)</span>
-                <p>CC CV ?</p>
-            </div>
-        </div>
+        <div class="max-w-3xl mx-auto space-y-4 px-4">
+            <article class="flex items-center border border-gray-400 rounded-full p-2.5 bg-white hover:scale-[1.02] transition-all text-left">
+                <div class="w-12 h-12 min-w-[3rem] bg-bamboo-badge rounded-full mr-5 ml-1"></div>
+                <div class="flex-1">
+                    <strong class="text-sm font-bold">Tom</strong> <span class="text-xs text-gray-500 ml-2">(2025-04-01)</span>
+                    <p class="text-sm text-gray-700">CC CV ?</p>
+                </div>
+            </article>
 
-        <div class="pill-card comment-card">
-            <div class="badge-circle user-badge"></div>
-            <div class="card-content">
-                <strong>Mathis</strong> <span class="date">(2025-01-01)</span>
-                <p>comment on fait un site stp ?</p>
-            </div>
-        </div>
+            <article class="flex items-center border border-gray-400 rounded-full p-2.5 bg-white hover:scale-[1.02] transition-all text-left">
+                <div class="w-12 h-12 min-w-[3rem] bg-bamboo-badge rounded-full mr-5 ml-1"></div>
+                <div class="flex-1">
+                    <strong class="text-sm font-bold">Mathis</strong> <span class="text-xs text-gray-500 ml-2">(2025-01-01)</span>
+                    <p class="text-sm text-gray-700">comment on fait un site stp ?</p>
+                </div>
+            </article>
 
-        <div class="pill-card comment-card">
-            <div class="badge-circle user-badge"></div>
-            <div class="card-content">
-                <strong>Jules</strong> <span class="date">(2024-05-15)</span>
-                <p>Tu connais PHP ?</p>
-            </div>
-        </div>
-
-        <div class="pill-card comment-card">
-            <div class="badge-circle user-badge"></div>
-            <div class="card-content">
-                <strong>Mathis</strong> <span class="date">(2024-05-13)</span>
-                <p>Jveux faire un site</p>
-            </div>
+            <article class="flex items-center border border-gray-400 rounded-full p-2.5 bg-white hover:scale-[1.02] transition-all text-left">
+                <div class="w-12 h-12 min-w-[3rem] bg-bamboo-badge rounded-full mr-5 ml-1"></div>
+                <div class="flex-1">
+                    <strong class="text-sm font-bold">Jules</strong> <span class="text-xs text-gray-500 ml-2">(2024-05-15)</span>
+                    <p class="text-sm text-gray-700">Tu connais PHP ?</p>
+                </div>
+            </article>
         </div>
     </section>
 
-    <footer>
-        <h2 class="footer-logo">THE ART OF WEB</h2>
-        <div class="footer-links">
-            <div class="footer-col">
-                <strong>Categories</strong>
-                <div class="footer-grid-links">
+    <footer class="bg-bamboo-footer text-gray-300 py-12 px-5 text-center">
+        <h2 class="text-5xl font-righteous text-bamboo-pale mb-10 tracking-widest uppercase">THE ART OF WEB</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-10 border-t border-[#556650] pt-8 max-w-4xl mx-auto">
+            <div class="flex flex-col gap-2">
+                <strong class="text-white uppercase mb-2 text-sm text-left">Categories</strong>
+                <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-xs text-left">
                     <span>HTML</span> <span>PHP</span>
                     <span>CSS</span> <span>SQL</span>
                     <span>JavaScript</span> <span>System</span>
                 </div>
             </div>
-            <div class="footer-col">
-                <strong>Join Us</strong>
-                <div class="social-icons">
-                    <a href="#"><svg class="icon-social" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.212 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-101.583 104.934-101.583 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
-                    <a href="#"><svg class="icon-social" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+            <div class="flex flex-col gap-4">
+                <strong class="text-white uppercase mb-2 text-sm">Join Us</strong>
+                <div class="flex justify-center gap-4">
+                    <a href="#" class="hover:scale-110 transition-transform"><svg class="w-6 h-6 fill-white hover:fill-bamboo-light" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.212 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-101.583 104.934-101.583 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                    <a href="#" class="hover:scale-110 transition-transform"><svg class="w-6 h-6 fill-white hover:fill-bamboo-light" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
                 </div>
             </div>
         </div>
     </footer>
     
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
